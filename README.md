@@ -325,7 +325,9 @@ DemoEnum::SYSTEM_ERROR2->toArray();
 ~~~
 
 
-
+# 鸣谢
+- 参照了朋友杰哥的包：https://github.com/duncanxia97/enum
+- 参照的开源包：https://github.com/Elao/PhpEnums
 
 
 
