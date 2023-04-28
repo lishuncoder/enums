@@ -1,0 +1,26 @@
+{
+    "name": "lishun/enums",
+    "description": "php enums tools",
+    "keywords": [
+        "php8.1",
+        "enum",
+        "library",
+        "enumeration"
+    ],
+    "version": "1.0.0",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Lishun\\Enums\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lishun",
+            "email": "411906015@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    }
+}
