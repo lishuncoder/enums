@@ -1,8 +1,8 @@
 # 安装
 
-~~~bash
+```bash
 composer require lishun/enums
-~~~
+```
 
 
 
@@ -29,7 +29,7 @@ tb_user.type:
 
 # 枚举类扩展
 
-~~~php
+```php
 use Lishun\Enums\Annotations\EnumCase;
 use Lishun\Enums\Interfaces\EnumCaseInterface;
 use Lishun\Enums\Traits\EnumCaseGet;
@@ -51,35 +51,35 @@ enum DemoEnum implements EnumCaseInterface
     case SYSTEM_ERROR3;
 }
 
-~~~
+```
 
 ## 枚举函数
 
 ### 获取枚举解释信息
 
-~~~php
+```php
 
 // 获取解释信息
 DemoEnum::SYSTEM_ERROR->getMsg(); // msg:系统错误
 
-~~~
+```
 
 
 
 ### 获取枚举拓展数据
 
-~~~php
+```php
 
 // 获取枚举拓展数据
 DemoEnum::SYSTEM_ERROR->getExt(); // ext: ['test'=>1,'type'=>2]
 
-~~~
+```
 
 
 
 #### 获取枚举拓展数据的某个值
 
-~~~php
+```php
 
 // 获取枚举拓展数据的某个值
 DemoEnum::SYSTEM_ERROR->getExt('test'); // 1
@@ -90,33 +90,33 @@ DemoEnum::SYSTEM_ERROR->getTest(); // 1
 // 这个方法需要你在原类上加上注释 @method test()
 DemoEnum::SYSTEM_ERROR->test(); // 1
 
-~~~
+```
 
 
 
 ### 获取枚举注解数据
 
-~~~php
+```php
 // 获取枚举注解数据
 DemoEnum::SYSTEM_ERROR->getData();
 
-~~~
+```
 
 
 
 ### 获取枚举分组名
 
-~~~php
+```php
 // 获取枚举附属数据
 DemoEnum::SYSTEM_ERROR->getGroup();
 
-~~~
+```
 
 
 
 ### 获取枚举的分组数据
 
-~~~php
+```php
 
 // 获取枚举分组，将返回一个数组，如果传入值为单个的情况仅返回单个分组，传入值为数组的情况下会返回以分组名为key的多维数组
 DemoEnum::getGroupEnums('sys');
@@ -192,13 +192,13 @@ DemoEnum::getGroupEnums(['sys','sys2']);
 }
 
     
-~~~
+```
 
 
 
 ### 将枚举转换为数组
 
-~~~php
+```php
 
 // 将枚举转换为数组
 DemoEnum::SYSTEM_ERROR2->toArray(); 
@@ -214,13 +214,13 @@ DemoEnum::SYSTEM_ERROR2->toArray();
     "ext": null
 }
 
-~~~
+```
 
 
 
 ## 错误码
 
-~~~php
+```php
 
 use Lishun\Enums\Annotations\EnumCode;
 use Lishun\Enums\Annotations\EnumCodePrefix;
@@ -243,56 +243,56 @@ enum DemoCode: int implements EnumCodeInterface
      #[EnumCode(msg:'系统错误2',ext:['test'=1])]
     case SYSTEM_ERROR2 = 502;
 }
-~~~
+```
 
 
 
 ### 获取错误码
 
-~~~php
+```php
 
 // 获取错误码
 DemoCode::SYSTEM_ERROR->getCode(); // 10500
 
-~~~
+```
 
 
 
 ### 获取错误码解释
 
-~~~php
+```php
 
 // 获取错误码解释
 DemoCode::SYSTEM_ERROR->getMsg(); // 系统错误
 
-~~~
+```
 
 
 
 ### 获取错误码前缀
 
-~~~php
+```php
 
 // 获取错误码前缀
 DemoCode::SYSTEM_ERROR->getPrefixCode(); // 10
 
-~~~
+```
 
 
 
 ### 获取错误码前缀注释
 
-~~~php
+```php
 
 // 获取错误码前缀注释
 DemoCode::SYSTEM_ERROR->getPrefixMsg(); // 系统错误码
-~~~
+```
 
 
 
 ### 获取枚举拓展数据的某个值
 
-~~~php
+```php
 // 获取枚举拓展数据的某个值
 DemoCode::SYSTEM_ERROR->getExt('test'); // 1
 
@@ -301,12 +301,12 @@ DemoCode::SYSTEM_ERROR->getTest(); // 1
 
 // 这个方法需要你在原类上加上注释 @method test()
 DemoCode::SYSTEM_ERROR->test(); // 1
-~~~
+```
 
 
 ### 将错误码转换为数组
 
-~~~php
+```php
 
 // 将枚举转换为数组
 DemoEnum::SYSTEM_ERROR2->toArray(); 
@@ -317,17 +317,18 @@ DemoEnum::SYSTEM_ERROR2->toArray();
     "code": 10500,
     "ext": null,
     "pre": {
-    "prefixCode": 10,
-    "prefixMsg": "系统错误码"
+        "prefixCode": 10,
+        "prefixMsg": "系统错误码"
+    }
 }
 
 
-~~~
+```
 
 
 ### 抛出错误码时
 
-~~~php
+```php
 
 // 将枚举转换为数组
 throw new BusinessException(DemoCode::SYSTEM_ERROR);
@@ -348,7 +349,7 @@ class BusinessException extends ServerException
 }
 
 
-~~~
+```
 
 
 # 鸣谢
