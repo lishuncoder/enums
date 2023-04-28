@@ -167,7 +167,6 @@ trait EnumCodeGet
     public static function getEnums(): array
     {
         $enum = new ReflectionEnum(static::class);
-        var_dump(static::class);
         if (EnumStore::isset($enum->getName())) {
             return EnumStore::get($enum->getName());
         }
