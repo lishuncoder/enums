@@ -325,6 +325,32 @@ DemoEnum::SYSTEM_ERROR2->toArray();
 ~~~
 
 
+### 抛出错误码时
+
+~~~php
+
+// 将枚举转换为数组
+throw new BusinessException(DemoCode::SYSTEM_ERROR);
+
+// 通过接口判断是否为code的实现类
+class BusinessException extends ServerException
+{
+    public function __construct(mixed $message = null,mixed $code = 0, Throwable $previous = null)
+    {
+        if ($message instanceof EnumCodeInterface) {
+            $msg = $message->getMsg();
+            $code = $message->getCode();
+            parent::__construct($msg, $code, $previous);
+        }else{
+            parent::__construct($message, $code, $previous);
+        }
+    }
+}
+
+
+~~~
+
+
 # 鸣谢
 - 参照了朋友杰哥的包：https://github.com/duncanxia97/enum
 - 参照的开源包：https://github.com/Elao/PhpEnums
