@@ -44,4 +44,24 @@ interface EnumCodeInterface
      * Date: 2023/04/28
      */
     public function getExt($key = null): mixed;
+
+
+    /**
+     * 获取前缀
+     *
+     * @return int|null
+     * @author LiShun
+     * Date: 2023/04/28
+     */
+    public function getPrefixCode(): ?int;
+
+
+    /**
+     * 获取前缀信息
+     *
+     * @return string|null
+     * @author LiShun
+     * Date: 2023/04/28
+     */
+    public function getPrefixMsg(): ?string;
 }
