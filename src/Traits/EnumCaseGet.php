@@ -258,17 +258,21 @@ trait EnumCaseGet
     /**
      * 获取分组数据
      *
-     * @param string|int|null|array $groupName
+     * @param string|int|array|EnumCaseInterface|null $groupName
      *
      * @return array|null
      * @author LiShun
      * Date: 2023/04/28
      */
-    public static function getGroupEnums(string|int|null|array $groupName = null): array|null
+    public static function getGroupEnums(string|int|null|array|EnumCaseInterface $groupName = null): array|null
     {
         $groups = self::loadGroupsEnums();
 
         $res = [];
+
+        if ($groupName instanceof EnumCaseInterface) {
+            $groupName = $groupName->getGroup();
+        }
 
         if ($groupName !== null) {
             if (is_array($groupName)) {
