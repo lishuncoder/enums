@@ -17,14 +17,14 @@ trait EnumCaseGet
 {
 
     /**
-     * 根据分组返回枚举实例
+     * 根据枚举实例的分组返回值对应的枚举实例
      *
      * @param mixed                  $value
      * @param EnumCaseInterface|null $case
      *
      * @return EnumCaseInterface|null
      */
-    public static function tryFrom(mixed $value, EnumCaseInterface $case = null): ?EnumCaseInterface
+    public static function tryFromByCase(mixed $value, EnumCaseInterface $case = null): ?EnumCaseInterface
     {
         if (!$value) {
             return null;
