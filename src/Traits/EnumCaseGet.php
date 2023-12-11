@@ -19,12 +19,12 @@ trait EnumCaseGet
     /**
      * 根据枚举实例的分组返回值对应的枚举实例
      *
-     * @param mixed                  $value
-     * @param EnumCaseInterface|null $case
+     * @param mixed                         $value
+     * @param EnumCaseInterface|null|string $case
      *
      * @return EnumCaseInterface|null
      */
-    public static function tryFromByCase(mixed $value, EnumCaseInterface $case = null): ?EnumCaseInterface
+    public static function tryFromByCase(mixed $value, string|EnumCaseInterface|null $case = null): ?EnumCaseInterface
     {
         if (!$value) {
             return null;
@@ -42,7 +42,12 @@ trait EnumCaseGet
             }
 
         } else {
-            $list = self::getGroupEnums($case->getGroup());
+            if ($case instanceof EnumCaseInterface) {
+                $list = self::getGroupEnums($case->getGroup());
+            } else {
+                $list = self::getGroupEnums($case);
+            }
+
             foreach ($list as $v) {
                 if (count(array_filter($v, 'is_array')) > 0) {
                     foreach ($v as $item) {
@@ -71,6 +76,24 @@ trait EnumCaseGet
             }
         }
         return $currenCase;
+    }
+
+    /**
+     * 根据实例返回分组中该值对应msg
+     *
+     * @param mixed                         $value
+     * @param string|EnumCaseInterface|null $case
+     *
+     * @return string
+     */
+    public static function tryMsgFromByCase(mixed $value, string|EnumCaseInterface|null $case = null): string
+    {
+        $currenCase = self::tryFromByCase($value, $case);
+        if (!$currenCase) {
+            return '';
+        }
+
+        return $currenCase->getMsg() ?? '';
     }
 
     /**
