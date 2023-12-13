@@ -300,7 +300,11 @@ trait EnumCaseGet
         if ($groupName !== null) {
             if (is_array($groupName)) {
                 foreach ($groupName as $value) {
-                    $value && $res[ $value ] = $groups[ $value ] ?? null;
+                    if ($groups[ $value ] ?? false) {
+                        foreach ($groups[ $value ] as $k => $v) {
+                            $v && $res[ $k ] = $v;
+                        }
+                    }
                 }
             } else {
                 $res = $groups[ $groupName ] ?? null;
