@@ -152,8 +152,7 @@ DemoEnum::getGroupEnums('sys');
 }
 
 DemoEnum::getGroupEnums(['sys','sys2']);
-"sys": {
-    "SYSTEM_ERROR": {
+ "SYSTEM_ERROR": {
         "name": "SYSTEM_ERROR",
         "value": null,
         "msg": "系统错误",
@@ -165,32 +164,28 @@ DemoEnum::getGroupEnums(['sys','sys2']);
             3
         ]
     },
-    "SYSTEM_ERROR2": {
-        "name": "SYSTEM_ERROR2",
-        "value": null,
-        "msg": "系统错误2",
-        "data": 2,
-        "group": [
-            "sys",
-            "sys2"
-        ],
-        "ext": null
-    }
+"SYSTEM_ERROR2": {
+    "name": "SYSTEM_ERROR2",
+    "value": null,
+    "msg": "系统错误2",
+    "data": 2,
+    "group": [
+        "sys",
+        "sys2"
+    ],
+    "ext": null
 },
-"sys2": {
-    "SYSTEM_ERROR2": {
-        "name": "SYSTEM_ERROR2",
-        "value": null,
-        "msg": "系统错误2",
-        "data": 2,
-        "group": [
-            "sys",
-            "sys2"
-        ],
-        "ext": null
-    }
+ "SYSTEM_ERROR2": {
+    "name": "SYSTEM_ERROR2",
+    "value": null,
+    "msg": "系统错误2",
+    "data": 2,
+    "group": [
+        "sys",
+        "sys2"
+    ],
+    "ext": null
 }
-
     
 ```
 
