@@ -26,12 +26,12 @@ trait EnumCaseGet
      */
     public static function tryFromByCase(mixed $value, string|EnumCaseInterface|null $case = null): ?EnumCaseInterface
     {
-        if (!$value) {
+        if ($value === null) {
             return null;
         }
         $currentArr = [];
         $cases      = self::cases();
-        if (!$case) {
+        if ($case === null) {
             $list = self::getEnums();
 
             foreach ($list as $v) {
