@@ -47,20 +47,26 @@ trait EnumCaseGet
             } else {
                 $list = self::getGroupEnums($case);
             }
-
+// 调整遍历 不存在之前那种奇怪的二维数组，此处不论获取的是什么，都是一维
+//            foreach ($list as $v) {
+//                if (count(array_filter($v, 'is_array')) > 0) {
+//                    foreach ($v as $item) {
+//                        if ($value === ($item['data'] ?? null)) {
+//                            $currentArr = $item;
+//                            break 2;
+//                        }
+//                    }
+//                } elseif ($value === ($v['data'] ?? null)) {
+//                    $currentArr = $v;
+//                    break;
+//                }
+//
+//            }
             foreach ($list as $v) {
-                if (count(array_filter($v, 'is_array')) > 0) {
-                    foreach ($v as $item) {
-                        if ($value === ($item['data'] ?? null)) {
-                            $currentArr = $item;
-                            break 2;
-                        }
-                    }
-                } elseif ($value === ($v['data'] ?? null)) {
+                if ($value === ($v['data'] ?? null)) {
                     $currentArr = $v;
                     break;
                 }
-
             }
         }
 
